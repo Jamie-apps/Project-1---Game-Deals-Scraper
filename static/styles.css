@@ -10,3 +10,9 @@ div{
     border: 3px solid gold;
     background-color: #fff8dc;
 }
+.top-deal{
+    padding:20px;
+    margin-bottom: 20px;
+    border: 4px solid orange;
+    background-color: #fff3cd;
+}

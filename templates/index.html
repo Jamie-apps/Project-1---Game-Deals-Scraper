@@ -6,7 +6,30 @@
     </head>
     <body>
         <h1>Game Deals Dashboard</h1>
-        <p>Learning Flask and Web Scraping</p>
+        {% if best_deal %}
+        <div class="top-deal">
+            <h2> Deal of the day!</h2>
+            <h3>{{ best_deal.title }}</h3>
+            <p>Price: {{best_deal.price }}</p>
+            <p>Discount: {{  best_deal.discount }}</p>
+        </div>
+        <hr>
+        {%  endif %}
+        <form>
+            <input type="text" name="search" value="{{ search }}" placeholder="Search games">
+            <input type="number" name="max_price" step="0.01" value="{{ max_price }}" placeholder="Max Price">
+            <select name="sort">
+                <option value="">Default</option>
+                <option value="discount" {% if sort == "discount" %}selected{% endif %}>Highest discount</option>
+                <option value="price" {% if sort == "price" %}selected{% endif %}>Lowest price</option>
+                <option value="title"{% if sort == "title"%}selected{% endif %}>A-Z</option>
+            </select>
+            <button>Search</button>
+            <a href="/export">
+                <button type="button">Export CSV</button>
+            </a>
+        </form>
+        <hr>
         <h2>Featured Games:</h2>
         {% for game in games %}
         {% if game.discount >= 70 %}
