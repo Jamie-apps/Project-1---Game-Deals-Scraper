@@ -1,0 +1,12 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 30px;
+}
+div{
+    padding: 10px;;
+}
+.best-deal{
+    padding: 30px;
+    border: 3px solid gold;
+    background-color: #fff8dc;
+}

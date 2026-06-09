@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <Title>Game Deals Dashboard</Title>
+    </head>
+    <body>
+        <h1>Game Deals Dashboard</h1>
+        <p>Learning Flask and Web Scraping</p>
+        <h2>Featured Games:</h2>
+        {% for game in games %}
+        {% if game.discount >= 70 %}
+        <div class="best-deal">
+            <h3>Best Deal! </h3>
+        {% else %}
+        <div>
+        {% endif %}
+            <h3>{{ game.title }}</h3>
+            <p>{{ game.price }}</p>
+            <p>{{ game.genre }}</p>
+            <p>{{ game.discount }}</p>
+        </div>
+        <hr>
+        {% endfor %}
+    </body>
+</html>
