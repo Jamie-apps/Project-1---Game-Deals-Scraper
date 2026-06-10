@@ -1,16 +1,21 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import urllib.parse
 
-def get_games():
-    return[
-        {
-            "title": "Terraria",
-            "price": 4.99,
-            "genre": "Sandbox",
-            "discount": 50
-        }
-    ]
+def load_genre_cache():
+    try:
+        with open("genres.json", "r")as file:
+            return json.load(file)
+    except:
+        return {}
+    
+def load_store_cache():
+    try:
+        with open("stores.json", "r")as file:
+            return json.load(file)
+    except:
+        return{}
 
 def test_scraper():
     with open("practice.html", "r") as file:
@@ -32,6 +37,7 @@ def test_scraper():
 
 def get_game_deals():
     genre_cache=(load_genre_cache())
+    store_cache=(load_store_cache())
     url=("https://www.cheapshark.com/api/1.0/deals")
     response=requests.get(url)
     deals=response.json()
@@ -44,20 +50,30 @@ def get_game_deals():
         results.append(
             {
                 "title": deal["title"],
-                "price": float(deal["salePrice"]),
-                "genre": genre_cache.get(deal["title"], []),
-                "discount": discount
+                "sale_price": sale_price,
+                "original_price": float(deal["normalPrice"]),
+                "discount": discount,
+                "genres": genre_cache.get(deal["title"], []),
+                "store": store_cache.get(deal["storeID"],{}),
+                "deal_url": ("https://www.cheapshark.com/redirect?dealID="+deal["dealID"])
             }
         )
     return results
 
-if __name__ == "__main__":
-    deals=get_game_deals()
-    print(deals[0])
+def test_deal():
+    deal_id = "dua6N5u4HYIU5lUexFlvkjLixz5RHy0a4lzdZENh64A%3D"
 
-def load_genre_cache():
-    try:
-        with open("genres.json", "r")as file:
-            return json.load(file)
-    except:
-        return {}
+    decoded_id = urllib.parse.unquote(deal_id)
+
+    response = requests.get(
+        "https://www.cheapshark.com/api/1.0/deals",
+        params={
+            "id": decoded_id
+        }
+    )
+
+    print(response.url)
+    print(response.json())
+
+if __name__=="__main__":
+    test_deal()
