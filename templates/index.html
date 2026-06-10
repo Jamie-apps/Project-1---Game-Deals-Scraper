@@ -39,8 +39,8 @@
         <h2>Featured Games:</h2>
         {% for game in games %}
         <div class="deal-row">
-            <div class="deal-summary">
-                <img class="store-logo" src="{{ game.store_logo }}" alt="{{ game.store.name }}">
+            <div class="deal-summary" onclick="ToggleDetails(this)">
+                <img class="store-logo" src="{{ game.store.logo }}" alt="{{ game.store.name }}">
                 <div class="game-info">
                     {% if game.discount >= 70 %}
                     <span class="gold-deal"> Best deal!</span>
@@ -48,9 +48,12 @@
                     <h3>{{ game.title }}</h3>
                     <p>${{ game.sale_price }}</p>
                 </div>
-                <div class="discount">{{ game.discount }}</div>
+                <div class="discount">
+                    {{ game.discount }}
+                    <span class="arrow">▼</span>
+                </div>
             </div>
-            <div class="deal-details">
+            <div class="deal-details hidden">
                 <p>Original price: ${{ game.original_price }}</p>
                 <p>Store: {{ game.store.name }}</p>
                 <p>Genres: {{ game.genres | join(", ")}}</p>
@@ -59,4 +62,11 @@
         </div>
         {% endfor %}
     </body>
+    <script>
+        function toggleDetails(summary)
+        {
+            let details=summary.nextElementSibling;
+            details.classList.toggle("hidden");
+        }
+    </script>
 </html>
