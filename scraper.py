@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 def get_games():
     return[
@@ -30,6 +31,7 @@ def test_scraper():
     return(results)
 
 def get_game_deals():
+    genre_cache=(load_genre_cache())
     url=("https://www.cheapshark.com/api/1.0/deals")
     response=requests.get(url)
     deals=response.json()
@@ -43,7 +45,7 @@ def get_game_deals():
             {
                 "title": deal["title"],
                 "price": float(deal["salePrice"]),
-                "genre": "unknown",
+                "genre": genre_cache.get(deal["title"], []),
                 "discount": discount
             }
         )
@@ -52,3 +54,10 @@ def get_game_deals():
 if __name__ == "__main__":
     deals=get_game_deals()
     print(deals[0])
+
+def load_genre_cache():
+    try:
+        with open("genres.json", "r")as file:
+            return json.load(file)
+    except:
+        return {}

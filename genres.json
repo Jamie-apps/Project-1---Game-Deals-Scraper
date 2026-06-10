@@ -24,7 +24,9 @@
         "Action",
         "RPG"
     ],
-    "Golf With Your Friends - Complete the Set": [],
+    "Golf With Your Friends - Complete the Set": [
+        "Multiplayer"
+    ],
     "SYNDUALITY: Echo of Ada Ultimate Edition": [
         "Action"
     ],
@@ -32,5 +34,21 @@
         "Indie",
         "Action",
         "RPG"
+    ],
+    "Strange Brigade - Deluxe Edition": [
+        "Adventure",
+        "Action",
+        "Puzzle"
+    ],
+    "Sniper Elite 4 Deluxe Edition": [
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Destiny 2: Legacy Collection 2025": [
+        "Massively Multiplayer",
+        "Shooter",
+        "Adventure",
+        "Action"
     ]
 }

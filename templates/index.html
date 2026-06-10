@@ -24,6 +24,12 @@
                 <option value="price" {% if sort == "price" %}selected{% endif %}>Lowest price</option>
                 <option value="title"{% if sort == "title"%}selected{% endif %}>A-Z</option>
             </select>
+            <select name="genre">
+                <option value="">All genres</option>
+                {% for genre_option in all_genres %}
+                <option value="{{ genre_option }}" {% if genre == genre_option %}selected{% endif %}>{{ genre_option }}</option>
+                {% endfor %}
+            </select>
             <button>Search</button>
             <a href="/export">
                 <button type="button">Export CSV</button>
@@ -40,7 +46,7 @@
         {% endif %}
             <h3>{{ game.title }}</h3>
             <p>{{ game.price }}</p>
-            <p>{{ game.genre }}</p>
+            <p>{{ game.genre | join(",") }}</p>
             <p>{{ game.discount }}</p>
         </div>
         <hr>

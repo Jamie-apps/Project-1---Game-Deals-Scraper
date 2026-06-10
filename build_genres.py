@@ -40,7 +40,9 @@ for game in games:
     title=game["title"]
     if title not in cache:
         print(f"Looking up: {title}")
-        cache[title]=(get_genres(title))
+        genres=get_genres(title)
+        print(genres)
+        cache[title]=genres
 
 with open("genres.json", "w")as file:
     json.dump(

@@ -8,7 +8,14 @@ def home():
     search=request.args.get("search", "")
     max_price=request.args.get("max_price", type=float)
     sort=request.args.get("sort", "")
+    genre=request.args.get("genre", "")
     games=get_game_deals()
+    all_games=games.copy()
+    all_genres=set()
+    for game in games:
+        for genre_name in game["genre"]:
+            all_genres.add(genre_name)
+    all_genres=sorted(all_genres)
     if search:
         games=[
             game for game in games if search.lower() in game["title"].lower()
@@ -16,6 +23,10 @@ def home():
     if max_price is not None:
         games=[
             game for game in games if game["price"] <= max_price
+        ]
+    if genre:
+        games=[
+            game for game in games if genre in game ["genre"]
         ]
     if sort=="discount":
         games.sort(
@@ -33,9 +44,9 @@ def home():
     best_deal=None
     if games:
         best_deal=max(
-            games, key=lambda game: game["discount"]
+            all_games, key=lambda game: game["discount"]
         )
-    return render_template("index.html", games=games, search=search, max_price=max_price, sort=sort, best_deal=best_deal)
+    return render_template("index.html", games=games, search=search, max_price=max_price, sort=sort, genre=genre, best_deal=best_deal, all_genres=all_genres)
 
 @app.route("/export")
 def export_csv():
