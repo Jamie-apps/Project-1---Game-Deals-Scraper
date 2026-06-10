@@ -7,10 +7,13 @@
 <ul>
 
 <li>Python – Core programming language</li>
+<li>HTML - Front-end language</li>
 
 <li>BeautifulSoup – HTML parsing and data extraction</li>
 
 <li>Flask – Web framework for serving results</li>
+<li>Cheapshark API - game deal source </li>
+<li>RAWG API- Game genre searcher </li>
 
 </ul>
 
