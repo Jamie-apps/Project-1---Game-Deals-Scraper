@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
         <Title>Game Deals Dashboard</Title>
     </head>
     <body>
         <h1>Game Deals Dashboard</h1>
-        {% if best_deal %}
-        <div class="top-deal">
-            <h2> Deal of the day!</h2>
-            <h3>{{ best_deal.title }}</h3>
-            <p>Price: ${{best_deal.sale_price }}</p>
-            <p>Discount: {{  best_deal.discount }}%</p>
-        </div>
-        <hr>
-        {%  endif %}
         <form>
             <input type="text" name="search" value="{{ search }}" placeholder="Search games">
             <input type="number" name="max_price" step="0.01" value="{{ max_price }}" placeholder="Max Price">
@@ -36,20 +30,22 @@
             </a>
         </form>
         <hr>
-        <h2>Featured Games:</h2>
+        <h2>TOP DEALS:</h2>
         {% for game in games %}
         <div class="deal-row">
             <div class="deal-summary" onclick="ToggleDetails(this)">
                 <img class="store-logo" src="{{ game.store.logo }}" alt="{{ game.store.name }}">
                 <div class="game-info">
-                    {% if game.discount >= 70 %}
-                    <span class="gold-deal"> Best deal!</span>
-                    {% endif %}
-                    <h3>{{ game.title }}</h3>
+                    <h3 class="
+                        {% if game.title==top_title %}
+                        rainbow-title
+                        {% elif game.discount >= 70 %}
+                        gold-title
+                        {% endif %}">{{ game.title }}</h3>                   
                     <p>${{ game.sale_price }}</p>
                 </div>
                 <div class="discount">
-                    {{ game.discount }}
+                    {{ game.discount }}%
                     <span class="arrow">▼</span>
                 </div>
             </div>

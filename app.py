@@ -8,7 +8,7 @@ def home():
     search=request.args.get("search", "")
     max_price=request.args.get("max_price", type=float)
     sort=request.args.get("sort", "")
-    genre=request.args.get("genres", "")
+    genre=request.args.get("genre", "")
     games=get_game_deals()
     all_games=games.copy()
     all_genres=set()
@@ -42,11 +42,15 @@ def home():
         )
 
     best_deal=None
+    top_title=""
     if games:
+        top_title=games[0]["title"]
         best_deal=max(
             all_games, key=lambda game: game["discount"]
         )
-    return render_template("index.html", games=games, search=search, max_price=max_price, sort=sort, genre=genre, best_deal=best_deal, all_genres=all_genres)
+
+
+    return render_template("index.html", games=games, search=search, max_price=max_price, sort=sort, genre=genre, best_deal=best_deal, all_genres=all_genres, top_title=top_title)
 
 @app.route("/export")
 def export_csv():
