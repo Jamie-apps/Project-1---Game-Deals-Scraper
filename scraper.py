@@ -2,13 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import urllib.parse
+import time
+from genre_lookup import get_genres
 
-def load_genre_cache():
-    try:
-        with open("genres.json", "r")as file:
-            return json.load(file)
-    except:
-        return {}
+CACHE_DURATION=15*60
     
 def load_store_cache():
     try:
@@ -16,33 +13,39 @@ def load_store_cache():
             return json.load(file)
     except:
         return{}
+    
+def load_deal_cache():
+    try:
+        with open("deals_cache.json", "r")as file:
+            return json.load(file)
+    except:
+        return {
+            "timestamp": 0,
+            "deals": []
+        }
 
-def test_scraper():
-    with open("practice.html", "r") as file:
-        html=file.read()
-    soup=BeautifulSoup(html, "html.parser")
-    games=soup.find_all("div")
-    results=[]
-    for game in games:
-        results.append(
-            {
-                "title": game.text.strip(),
-                "price": 0,
-                "genre": "unknown",
-                "discount": 0
-            }
-        )
-    print(results)
-    return(results)
 
 def get_game_deals():
-    genre_cache=(load_genre_cache())
+    deal_cache=(load_deal_cache())
+    if time.time() - deal_cache["timestamp"] < CACHE_DURATION:
+        print("using cached deals.")
+        return deal_cache["deals"]
+    print("Fetching fresh deals.")
     store_cache=(load_store_cache())
     url=("https://www.cheapshark.com/api/1.0/deals")
-    response=requests.get(url)
-    deals=response.json()
+    all_deals=[]
+    for page in range(5):
+        response=requests.get(
+            url, params={
+                "pageNumber": page,
+                "pageSize": 20
+            }
+        )
+        deals=response.json()
+        print(f"Fetched page {page + 1}")
+        all_deals.extend(deals)
     results=[]
-    for deal in deals[:20]:
+    for deal in all_deals:
         sale_price=float(deal["salePrice"])
         discount=round(float(deal["savings"]))
         if sale_price<=0:
@@ -53,12 +56,22 @@ def get_game_deals():
                 "sale_price": sale_price,
                 "original_price": float(deal["normalPrice"]),
                 "discount": discount,
-                "genres": genre_cache.get(deal["title"], []),
+                "genres": get_genres(deal["title"]),
                 "store": store_cache.get(deal["storeID"],{}),
                 "deal_url": ("https://www.cheapshark.com/redirect?dealID="+deal["dealID"])
             }
         )
+    print(f"Total deals processed: {len(results)}")
+    save_deals_cache(results)
     return results
+
+def save_deals_cache(deals):
+    cache={
+        "timestamp": time.time(),
+        "deals": deals
+    }
+    with open("deals_cache.json", "w")as file:
+        json.dump(cache, file, indent=4)
 
 def test_deal():
     deal_id = "dua6N5u4HYIU5lUexFlvkjLixz5RHy0a4lzdZENh64A%3D"
@@ -76,4 +89,5 @@ def test_deal():
     print(response.json())
 
 if __name__=="__main__":
-    test_deal()
+    deals=get_game_deals()
+    print(deals[0])

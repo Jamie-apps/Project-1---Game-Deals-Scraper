@@ -3,6 +3,11 @@ from scraper import get_game_deals
 
 app=Flask(__name__)
 
+def calculate_deal_score(game):
+    return(
+        game["discount"]+(20/(game["sale_price"]+1))
+    )
+
 @app.route("/")
 def home():
     search=request.args.get("search", "")
@@ -10,7 +15,6 @@ def home():
     sort=request.args.get("sort", "")
     genre=request.args.get("genre", "")
     games=get_game_deals()
-    all_games=games.copy()
     all_genres=set()
     for game in games:
         for genre_name in game["genres"]:
@@ -42,15 +46,15 @@ def home():
         )
 
     best_deal=None
-    top_title=""
+    top_deal_url=""
     if games:
-        top_title=games[0]["title"]
         best_deal=max(
-            all_games, key=lambda game: game["discount"]
+            games, key=calculate_deal_score 
         )
 
+    top_deal_url=best_deal["deal_url"]
 
-    return render_template("index.html", games=games, search=search, max_price=max_price, sort=sort, genre=genre, best_deal=best_deal, all_genres=all_genres, top_title=top_title)
+    return render_template("index.html", games=games, search=search, max_price=max_price, sort=sort, genre=genre, best_deal=best_deal, all_genres=all_genres, top_deal_url=top_deal_url)
 
 @app.route("/export")
 def export_csv():

@@ -37,7 +37,7 @@
                 <img class="store-logo" src="{{ game.store.logo }}" alt="{{ game.store.name }}">
                 <div class="game-info">
                     <h3 class="
-                        {% if game.title==top_title %}
+                        {% if game.deal_url==top_deal_url %}
                         rainbow-title
                         {% elif game.discount >= 70 %}
                         gold-title
