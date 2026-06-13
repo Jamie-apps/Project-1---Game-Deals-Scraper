@@ -413,5 +413,58 @@
         "Strategy",
         "Card",
         "Indie"
+    ],
+    "Toki Tori 2": [
+        "Puzzle"
+    ],
+    "RIVE": [
+        "Arcade",
+        "Action"
+    ],
+    "Atomic Heart - Ultimate Edition": [
+        "Shooter"
+    ],
+    "Trine 4: The Nightmare Prince": [
+        "Platformer",
+        "Adventure",
+        "Action",
+        "Puzzle"
+    ],
+    "Cris Tales": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Metro Exodus": [
+        "Shooter",
+        "Action"
+    ],
+    "EA SPORTS FC 26 The Worlds Game Edition": [
+        "Simulation",
+        "Sports"
+    ],
+    "SWORD ART ONLINE Fractured Daydream Deluxe Edition": [
+        "Casual",
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Supreme Ruler 2010": [
+        "Strategy"
+    ],
+    "INDUSTRIA": [
+        "Indie",
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Atomic Heart - Premium Edition": [
+        "Shooter"
+    ],
+    "Tiny Thor": [
+        "Casual",
+        "Indie",
+        "Arcade",
+        "Action"
     ]
 }

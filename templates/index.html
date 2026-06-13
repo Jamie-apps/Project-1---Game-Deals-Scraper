@@ -33,36 +33,35 @@
         <h2>TOP DEALS:</h2>
         {% for game in games %}
         <div class="deal-row">
-            <div class="deal-summary" onclick="ToggleDetails(this)">
-                <img class="store-logo" src="{{ game.store.logo }}" alt="{{ game.store.name }}">
-                <div class="game-info">
-                    <h3 class="
-                        {% if game.deal_url==top_deal_url %}
-                        rainbow-title
-                        {% elif game.discount >= 70 %}
-                        gold-title
-                        {% endif %}">{{ game.title }}</h3>                   
-                    <p>${{ game.sale_price }}</p>
-                </div>
-                <div class="discount">
-                    {{ game.discount }}%
-                    <span class="arrow">▼</span>
-                </div>
+            <div class="deal-summary">
+                <img src="{{ game.store.logo }}" alt="{{ game.store.name }}" class="store-logo">
+                <h3 class="deal-title {% if game.deal_url == top_deal_url %}rainbow-title{% elif game.discount >= 70 %}gold-title{% endif %}"> {{ game.title }}</h3>
+                <p class="sale-price">${{ game.sale_price }}</p>
+                <p class="discount">{{ game.discount }}%</p>
+                <p class="expand-arrow">▼</p>
             </div>
-            <div class="deal-details hidden">
-                <p>Original price: ${{ game.original_price }}</p>
-                <p>Store: {{ game.store.name }}</p>
-                <p>Genres: {{ game.genres | join(", ")}}</p>
-                <a class="buy-button" href="{{ game.deal_url }}" target="_blank">INSERT COIN -> BUY GAME</a>
+            <div class="deal-details">
+                <h3 class="full-title">{{ game.title }}</h3>
+                <div class="detail-line">
+                    <span class="label">Sale price:</span>
+                    <span class="value">${{ game.sale_price }}</span>
+                </div>
+                <div class="detail-line">
+                    <span class="label">Genre:</span>
+                    <span class="value">{{ game.genres | join(" ,") }}</span>
+                </div>
+                <div class="detail-line">
+                    <span class="label">Store:</span>
+                    <span class="value">{{ game.store.name }}</span>
+                </div>
+                <div class="detail-line">
+                    <span class="label">Original price:</span>
+                    <span value="value">{{ game.original_price }}</span>
+                </div>
+                <a href="{{ game.deal_url }}" target="_blank">Go to Store</a>
             </div>
         </div>
         {% endfor %}
     </body>
-    <script>
-        function toggleDetails(summary)
-        {
-            let details=summary.nextElementSibling;
-            details.classList.toggle("hidden");
-        }
-    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

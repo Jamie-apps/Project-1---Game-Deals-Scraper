@@ -6,9 +6,6 @@ body{
     padding: 20px;
     line-height: 1.8;
 }
-div{
-    padding: 10px;;
-}
 .best-deal{
     padding: 30px;
     border: 3px solid gold;
@@ -27,29 +24,23 @@ div{
     display: none;
 }
 .deal-summary{
-    display: flex;
+    display: grid;
+    grid-template-columns: 70px 1fr 120px 80px 30px;
     align-items: center;
-    justify-content: space-between;
     cursor: pointer;
-    padding: 15px;
+    gap: 15px;
+    
 }
 .store-logo{
-    width:70px;
-    height: auto;
-    margin-right: 20px;
-}
-.game-info{
-    flex-grow: 1;
-}
-.discount{
-    font-size: 30px;
-    font-weight: bold;
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
 }
 .deal-row{
     border: 3px solid #00ff66;
-    margin: 15px 0;
-    box-shadow: 
-        0 0 10px #00ff66;
+    margin: 10px 0;
+    padding: 8px 15px;
+    box-shadow: 0 0 10px #00ff66;
     background-color: #050505;
 }
 .gold-title{
@@ -99,4 +90,61 @@ p{
     to{
         background-position: 200%;
     }
+}
+.deal-title{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+}
+.sale-price, .discount{
+    text-align: right;
+}
+.deal-details{
+    display: none;
+    border-top: 2px solid #00ff66;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #050505;
+}
+.deal-row.open .deal-details{
+    display: block;
+}
+.expand-arrow{
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    transform-origin: center center;
+    transition: transform 0.2s;
+}
+.deal-row.open .expand-arrow{
+    transform: rotate(180deg);
+}
+.deal-summary:hover{
+    box-shadow: 0 0 20px #00ff66;
+    background-color: #081808;
+    transition: 0.2s;
+}
+.detail-line{
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    margin: 12px 0;
+}
+.label{
+    color: #00ff66;
+}
+.value{
+    color: white;
+}
+.deal-details a{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid #00ff66;
+    color: #00ff66;
+    text-decoration: none;
+}
+.deal-details a:hover{
+    background-color: #00ff66;
+    color: black;
 }

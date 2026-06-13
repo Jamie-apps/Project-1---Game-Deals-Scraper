@@ -5,7 +5,8 @@ import urllib.parse
 import time
 from genre_lookup import get_genres
 
-CACHE_DURATION=15*60
+# 12 hour catch refresh duration. Was previously 15 minutes. Expanded to prevent excessive traffic in development
+CACHE_DURATION=60*60*12
     
 def load_store_cache():
     try:
@@ -72,6 +73,7 @@ def save_deals_cache(deals):
     }
     with open("deals_cache.json", "w")as file:
         json.dump(cache, file, indent=4)
+    print(f"saved {len(deals)} deals to cache.")
 
 def test_deal():
     deal_id = "dua6N5u4HYIU5lUexFlvkjLixz5RHy0a4lzdZENh64A%3D"
