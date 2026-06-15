@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Game Deals Dashboard</h1>
-        <form>
+        <form class="search-panel">
             <input type="text" name="search" value="{{ search }}" placeholder="Search games">
             <input type="number" name="max_price" step="0.01" value="{{ max_price }}" placeholder="Max Price">
             <select name="sort">
@@ -22,6 +22,12 @@
                 <option value="">All genres</option>
                 {% for genre_option in all_genres %}
                 <option value="{{ genre_option }}" {% if genre == genre_option %}selected{% endif %}>{{ genre_option }}</option>
+                {% endfor %}
+            </select>
+            <select name="store">
+                <option value="">All stores</option>
+                {% for store_option in all_stores %}
+                <option value="{{ store_option }}" {% if store == store_option %}selected{% endif %}>{{ store_option }}</option>
                 {% endfor %}
             </select>
             <button>Search</button>
@@ -43,10 +49,6 @@
             <div class="deal-details">
                 <h3 class="full-title">{{ game.title }}</h3>
                 <div class="detail-line">
-                    <span class="label">Sale price:</span>
-                    <span class="value">${{ game.sale_price }}</span>
-                </div>
-                <div class="detail-line">
                     <span class="label">Genre:</span>
                     <span class="value">{{ game.genres | join(" ,") }}</span>
                 </div>
@@ -62,6 +64,15 @@
             </div>
         </div>
         {% endfor %}
+        <div class="pagination">
+            {% if prev_url %}
+            <a href="{{ prev_url }}">◀ PREVIOUS</a>
+            {% endif %}
+            <span>Page {{ page }}/{{ total_pages }}</span>
+            {% if next_url %}
+            <a href="{{ next_url }}">NEXT ▶</a>
+            {% endif %}
+        </div>
     </body>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </html>

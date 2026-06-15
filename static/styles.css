@@ -101,21 +101,27 @@ p{
     text-align: right;
 }
 .deal-details{
-    display: none;
-    border-top: 2px solid #00ff66;
-    margin-top: 10px;
-    padding: 20px;
-    background-color: #050505;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: 
+        max-height 0.4s ease,
+        opacity 0.3s ease;
+    border-top: 0 solid #00ff66;
 }
 .deal-row.open .deal-details{
-    display: block;
+    max-height: 500px;
+    opacity: 1;
+    border-top: 2px solid #00ff66;
+    margin-top: 10px;
+    padding-top: 15px;
 }
 .expand-arrow{
     display: inline-block;
     width: 20px;
     text-align: center;
     transform-origin: center center;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 .deal-row.open .expand-arrow{
     transform: rotate(180deg);
@@ -147,4 +153,44 @@ p{
 .deal-details a:hover{
     background-color: #00ff66;
     color: black;
+}
+.search-panel{
+    border: 3px solid #00ff66;
+    background-color: #050505;
+    box-shadow: 0 0 10px #00ff66;
+    padding: 15px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+.search-panel input, .search-panel select{
+    background-color: black;
+    color: #00ff66;
+    border: 2-x solid #00ff66;
+    padding: 10px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 10px;
+    outline: none;
+}
+.search-panel input:focus, .search-panel select:focus{
+    box-shadow: 
+        0 0 5px #00ff66,
+        0 0 10px #00ff66;
+}
+.search-panel button{
+    background-color: black;
+    color: #00ff66;
+    border: 2px solid #00ff66;
+    padding: 10px 15px;
+    font-family: "Press Start 2P", monospace;
+    cursor: pointer;
+    transform: 0.2s;
+}
+.search-panel button:hover{
+    background-color: #00ff66;
+    color: black;
+    box-shadow: 
+        0 0 10px #00ff66;
 }
