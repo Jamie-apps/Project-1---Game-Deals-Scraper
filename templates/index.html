@@ -31,16 +31,20 @@
                 {% endfor %}
             </select>
             <button>Search</button>
-            <a href="/export">
+            <a href="{{ url_for('export_csv', search=search, max_price=max_price, sort=sort, genre=genre, store=store) }}">
                 <button type="button">Export CSV</button>
             </a>
+            {% if error %}
+            <div class="error-message">{{ error }}</div>
+            {% endif %}
         </form>
         <hr>
         <h2>TOP DEALS:</h2>
+        {% if games %}
         {% for game in games %}
         <div class="deal-row">
             <div class="deal-summary">
-                <img src="{{ game.store.logo }}" alt="{{ game.store.name }}" class="store-logo">
+                <img src="{{ game.store.logo }}" alt="{{ game.store.name or "Unknown" }}" class="store-logo">
                 <h3 class="deal-title {% if game.deal_url == top_deal_url %}rainbow-title{% elif game.discount >= 70 %}gold-title{% endif %}"> {{ game.title }}</h3>
                 <p class="sale-price">${{ game.sale_price }}</p>
                 <p class="discount">{{ game.discount }}%</p>
@@ -54,7 +58,7 @@
                 </div>
                 <div class="detail-line">
                     <span class="label">Store:</span>
-                    <span class="value">{{ game.store.name }}</span>
+                    <span class="value">{{ game.store.name or "Unknown" }}</span>
                 </div>
                 <div class="detail-line">
                     <span class="label">Original price:</span>
@@ -64,13 +68,19 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div class="no-results">
+            <h2>NO MATCHING DEALS FOUND</h2>
+            <p>Try a different search or adjust your filters.</p>
+        </div>
+        {% endif %}
         <div class="pagination">
             {% if prev_url %}
-            <a href="{{ prev_url }}">◀ PREVIOUS</a>
+            <a href="{{ prev_url }}"><button>◀ PREVIOUS</button></a>
             {% endif %}
             <span>Page {{ page }}/{{ total_pages }}</span>
             {% if next_url %}
-            <a href="{{ next_url }}">NEXT ▶</a>
+            <a href="{{ next_url }}"><button>NEXT ▶</button></a>
             {% endif %}
         </div>
     </body>

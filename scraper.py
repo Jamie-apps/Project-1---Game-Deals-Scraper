@@ -5,21 +5,23 @@ import urllib.parse
 import time
 from genre_lookup import get_genres
 
-# 12 hour catch refresh duration. Was previously 15 minutes. Expanded to prevent excessive traffic in development
-CACHE_DURATION=60*60*12
+# 12 hour cache refresh duration. Was previously 15 minutes. Expanded to prevent excessive traffic in development
+CACHE_DURATION = 60 * 60 * 12
     
 def load_store_cache():
     try:
         with open("stores.json", "r")as file:
             return json.load(file)
-    except:
+    except(FileNotFoundError, json.JSONDecodeError):
+        print("Store cache missing or corrupted.")
         return{}
     
 def load_deal_cache():
     try:
         with open("deals_cache.json", "r")as file:
             return json.load(file)
-    except:
+    except(FileNotFoundError, json.JSONDecodeError):
+        print("Deal cache missing or corrupted. Creating new cache.")
         return {
             "timestamp": 0,
             "deals": []
@@ -27,29 +29,37 @@ def load_deal_cache():
 
 
 def get_game_deals():
-    deal_cache=(load_deal_cache())
+    deal_cache = (load_deal_cache())
     if time.time() - deal_cache["timestamp"] < CACHE_DURATION:
         print("using cached deals.")
         return deal_cache["deals"]
     print("Fetching fresh deals.")
-    store_cache=(load_store_cache())
-    url=("https://www.cheapshark.com/api/1.0/deals")
-    all_deals=[]
-    for page in range(5):
-        response=requests.get(
-            url, params={
+    try:
+        store_cache = load_store_cache()
+        url = "https://www.cheapshark.com/api/1.0/deals"
+        all_deals = []
+        for page in range(5):
+            response=requests.get(url, timeout = 10, params = {
                 "pageNumber": page,
                 "pageSize": 20
-            }
-        )
-        deals=response.json()
-        print(f"Fetched page {page + 1}")
-        all_deals.extend(deals)
-    results=[]
+            })
+            response.raise_for_status()
+            deals=response.json()
+            print(f"Fetched page {page + 1}")
+            all_deals.extend(deals)
+    except requests.RequestException as error:
+        print(f"Cheapshark unavailable: {error}")
+        if deal_cache["deals"]:
+            print(f"Using expired cache deals")
+            return deal_cache["deals"]
+        print("No cache available.")
+        return[]
+
+    results = []
     for deal in all_deals:
-        sale_price=float(deal["salePrice"])
-        discount=round(float(deal["savings"]))
-        if sale_price<=0:
+        sale_price = float(deal["salePrice"])
+        discount = round(float(deal["savings"]))
+        if sale_price <= 0:
             continue
         results.append(
             {
@@ -58,7 +68,10 @@ def get_game_deals():
                 "original_price": float(deal["normalPrice"]),
                 "discount": discount,
                 "genres": get_genres(deal["title"]),
-                "store": store_cache.get(deal["storeID"],{}),
+                "store": store_cache.get(deal["storeID"],{
+                    "name": "Unknown",
+                    "logo": ""
+                }),
                 "deal_url": ("https://www.cheapshark.com/redirect?dealID="+deal["dealID"])
             }
         )
@@ -67,12 +80,12 @@ def get_game_deals():
     return results
 
 def save_deals_cache(deals):
-    cache={
+    cache = {
         "timestamp": time.time(),
         "deals": deals
     }
     with open("deals_cache.json", "w")as file:
-        json.dump(cache, file, indent=4)
+        json.dump(cache, file, indent = 4)
     print(f"saved {len(deals)} deals to cache.")
 
 def test_deal():
@@ -82,7 +95,7 @@ def test_deal():
 
     response = requests.get(
         "https://www.cheapshark.com/api/1.0/deals",
-        params={
+        params = {
             "id": decoded_id
         }
     )
@@ -90,6 +103,6 @@ def test_deal():
     print(response.url)
     print(response.json())
 
-if __name__=="__main__":
+if __name__ == "__main__":
     deals=get_game_deals()
     print(deals[0])

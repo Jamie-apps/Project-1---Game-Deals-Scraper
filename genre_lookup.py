@@ -5,42 +5,43 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY=os.getenv("RAWG_API_KEY")
+API_KEY = os.getenv("RAWG_API_KEY")
 
 def load_genre_cache():
     try:
         with open("genres.json", "r")as file:
             return json.load(file)
-    except:
+    except(FileNotFoundError, json.JSONDecodeError):
+        print("File missing or corrupted.")
         return {}
     
 def save_genre_cache(cache):
     with open("genres.json", "w")as file:
-        json.dump(cache, file, indent=4)
+        json.dump(cache, file, indent = 4)
 
 def search_game(title):
-    url="https://api.rawg.io/api/games"
+    url = "https://api.rawg.io/api/games"
     params={
         "key": API_KEY,
         "search": title,
         "page_size": 1
     }
-    response=requests.get(url, params=params)
+    response=requests.get(url, params = params)
     return response.json()
 
 def get_genres(title):
-    cache=load_genre_cache()
+    cache = load_genre_cache()
     if title in cache:
         return cache[title]
     print(f"New game found. Searching RAWG: {title}")
-    result=search_game(title)
+    result = search_game(title)
     if not result["results"]:
-        cache[title]=[]
+        cache[title] = []
         save_genre_cache(cache)
         return[]
-    genres=[]
+    genres = []
     for genre in result["results"][0]["genres"]:
         genres.append(genre["name"])
-    cache[title]=genres
+    cache[title] = genres
     save_genre_cache(cache)
     return genres

@@ -194,3 +194,29 @@ p{
     box-shadow: 
         0 0 10px #00ff66;
 }
+.pagination button{
+    background-color: black;
+    color: #00ff66;
+    border: 2px solid #00ff66;
+    padding: 10px 15px;
+    font-family: "Press Start 2P", monospace;
+    cursor: pointer;
+    transform: 0.2s;
+}
+.pagination button:hover{
+    background-color: #00ff66;
+    color: black;
+    box-shadow: 
+        0 0 10px #00ff66;
+}
+.error-message{
+    border: 3px sold red;
+    color: red;
+    background-color: #200;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+    box-shadow: 
+        0 0 10px red,
+        0 0 20px darkred;
+}
