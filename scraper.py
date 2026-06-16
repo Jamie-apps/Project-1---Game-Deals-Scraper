@@ -38,7 +38,7 @@ def get_game_deals():
         store_cache = load_store_cache()
         url = "https://www.cheapshark.com/api/1.0/deals"
         all_deals = []
-        for page in range(25):
+        for page in range(15):
             response=requests.get(url, timeout = 10, params = {
                 "pageNumber": page,
                 "pageSize": 20
