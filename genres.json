@@ -657,5 +657,104 @@
     ],
     "Assassins Creed II": [
         "Action"
+    ],
+    "One Punch Man: A Hero Nobody Knows Deluxe Edition": [
+        "Action",
+        "Fighting"
+    ],
+    "ONE PIECE World Seeker Deluxe Edition": [
+        "Adventure",
+        "Action"
+    ],
+    "ONE PIECE BURNING BLOOD GOLD EDITION": [
+        "Arcade",
+        "Action",
+        "Fighting"
+    ],
+    "TEKKEN 7 - Originals Edition": [
+        "Action",
+        "Fighting",
+        "Sports"
+    ],
+    "SOULCALIBUR VI Deluxe Edition": [
+        "Action",
+        "Fighting"
+    ],
+    "TEKKEN 7 - Definitive Edition": [
+        "Strategy"
+    ],
+    "One Piece: Pirate Warriors 4 - Ultimate Edition": [
+        "Action"
+    ],
+    "Cruelty Squad": [
+        "Indie",
+        "Action"
+    ],
+    "MY HERO ONES JUSTICE 2 Ultimate Edition": [
+        "Action",
+        "Fighting"
+    ],
+    "Sid Meier's Civilization IV": [
+        "Strategy"
+    ],
+    "SD Gundam Battle Alliance Deluxe Edition": [
+        "Action",
+        "RPG",
+        "Fighting"
+    ],
+    "Sid Meiers Civilization VI": [
+        "Strategy",
+        "Simulation"
+    ],
+    "Super Robot Wars 30 - Deluxe Edition": [
+        "Strategy",
+        "RPG",
+        "Simulation"
+    ],
+    "Soul Calibur VI": [
+        "Action",
+        "Fighting"
+    ],
+    "Chariot": [
+        "Indie",
+        "Adventure",
+        "Action"
+    ],
+    "TEKKEN 7": [
+        "Action",
+        "Fighting",
+        "Sports"
+    ],
+    "GUNDAM BREAKER 4 Deluxe Edition": [
+        "Adventure",
+        "Puzzle"
+    ],
+    "Nuclear Dawn": [
+        "Strategy",
+        "Action"
+    ],
+    "Huntdown": [
+        "Indie",
+        "Action"
+    ],
+    "Civilization IV: Beyond the Sword": [
+        "Strategy"
+    ],
+    "Fallback": [
+        "Indie",
+        "Adventure",
+        "Action"
+    ],
+    "Sid Meier's Civilization V": [
+        "Strategy"
+    ],
+    "Biped": [
+        "Adventure",
+        "Action",
+        "Puzzle",
+        "Casual",
+        "Family",
+        "Indie",
+        "Platformer"
     ]
 }
