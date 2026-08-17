@@ -37,12 +37,17 @@ def get_game_deals():
     try:
         store_cache = load_store_cache()
         url = "https://www.cheapshark.com/api/1.0/deals"
+        headers={
+            "User-Agent": "BigDeal/1.0 (Game Deals Dashboard)"
+        }
         all_deals = []
-        for page in range(15):
+        for page in range(25):
             response=requests.get(url, timeout = 10, params = {
                 "pageNumber": page,
                 "pageSize": 20
-            })
+            },
+            headers=headers
+            )
             response.raise_for_status()
             deals=response.json()
             print(f"Fetched page {page + 1}")
