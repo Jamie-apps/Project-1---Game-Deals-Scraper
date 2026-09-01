@@ -26,8 +26,17 @@ def search_game(title):
         "search": title,
         "page_size": 1
     }
-    response=requests.get(url, params = params)
-    return response.json()
+    try:
+        response = requests.get(
+            url,
+            params=params,
+            timeout=10
+        )
+        response.raise_for_status()
+        return response.json()
+    except requests.RequestException as error:
+        print(f"RAWG lookup failed for {title}: {error}")
+        return None
 
 def get_genres(title):
     cache = load_genre_cache()
@@ -35,13 +44,16 @@ def get_genres(title):
         return cache[title]
     print(f"New game found. Searching RAWG: {title}")
     result = search_game(title)
+    if not result or "results" not in result:
+        print(f"No genre data available for {title}.")
+        return[]
     if not result["results"]:
-        cache[title] = []
+        cache[title]=[]
         save_genre_cache(cache)
         return[]
-    genres = []
+    genres=[]
     for genre in result["results"][0]["genres"]:
         genres.append(genre["name"])
-    cache[title] = genres
+    cache[title]=genres
     save_genre_cache(cache)
     return genres
