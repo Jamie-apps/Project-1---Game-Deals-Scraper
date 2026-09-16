@@ -48,10 +48,14 @@ def get_game_deals():
             },
             headers=headers
             )
+            if response.status_code == 429:
+                print("Cheapshark rate limit exceeded.")
+                break
             response.raise_for_status()
             deals=response.json()
             print(f"Fetched page {page + 1}")
             all_deals.extend(deals)
+            time.sleep(1)
     except requests.RequestException as error:
         print(f"Cheapshark unavailable: {error}")
         if deal_cache["deals"]:
@@ -72,7 +76,7 @@ def get_game_deals():
                 "sale_price": sale_price,
                 "original_price": float(deal["normalPrice"]),
                 "discount": discount,
-                "genres": get_genres(deal["title"]),
+                "genres": get_genres(deal["title"], deal.get("steamAppID")),
                 "store": store_cache.get(deal["storeID"],{
                     "name": "Unknown",
                     "logo": ""

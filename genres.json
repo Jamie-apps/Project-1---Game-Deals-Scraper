@@ -4249,5 +4249,488 @@
         "Adventure",
         "Action",
         "RPG"
+    ],
+    "Honeycomb: The World Beyond": [
+        "Puzzle"
+    ],
+    "The Crust": [
+        "Strategy",
+        "Simulation"
+    ],
+    "Seafarer: The Ship Sim": [
+        "Casual",
+        "Simulation"
+    ],
+    "EA SPORTS PGA TOUR": [
+        "Simulation",
+        "Sports"
+    ],
+    "Far Cry New Dawn Complete Bundle": [
+        "Arcade",
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Riders Republic Premium Edition": [
+        "Massively Multiplayer",
+        "Action",
+        "Sports"
+    ],
+    "Divinity: Original Sin - Enhanced Edition": [
+        "Indie",
+        "RPG"
+    ],
+    "THE KING OF FIGHTERS XIV STEAM EDITION DELUXE PACK": [
+        "Action",
+        "Fighting"
+    ],
+    "Watch Dogs Legion - Ultimate Edition (Ubisoft)": [
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Assassins Creed Mirage and Assassins Creed Valhalla Assassins Creed Bundle": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Assassins Creed Valhalla Ragnark Edition": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "NARUTO TO BORUTO: SHINOBI STRIKER Ultimate Edition": [
+        "Action"
+    ],
+    "Jujutsu Kaisen Cursed Clash - Deluxe Edition": [
+        "Action",
+        "Fighting"
+    ],
+    "Aggelos 2": [
+        "Indie",
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Werewolf: the Apocalypse - Heart of the Forest": [
+        "Indie",
+        "Adventure",
+        "RPG"
+    ],
+    "2064: Read Only Memories": [
+        "Adventure",
+        "Puzzle"
+    ],
+    "EA SPORTS PGA TOUR Deluxe Edition": [
+        "Sports"
+    ],
+    "Assassins Creed Valhalla and Immortals Fenyx Rising Valhalla and Immortals Fenyx Rising Pack": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Trinity Fusion": [
+        "Indie",
+        "Action",
+        "RPG"
+    ],
+    "Hogwarts Legacy and Quidditch Champions Deluxe Bundle": [
+        "Action",
+        "RPG"
+    ],
+    "Assassins Creed Mythology Pack": [
+        "Action"
+    ],
+    "Detective Gallo": [
+        "Adventure",
+        "Puzzle"
+    ],
+    "Tormented Souls": [
+        "Adventure",
+        "Action"
+    ],
+    "NARUTO X BORUTO Ultimate Ninja Storm Connections - Deluxe Edition": [
+        "Adventure",
+        "Action",
+        "Fighting"
+    ],
+    "Outshine": [
+        "Indie",
+        "Action"
+    ],
+    "Riders Republic": [
+        "Massively Multiplayer",
+        "Action",
+        "Sports"
+    ],
+    "Gone Home": [
+        "Indie",
+        "Adventure"
+    ],
+    "NARUTO X BORUTO Ultimate Ninja Storm Connections - Ultimate Edition": [
+        "Adventure",
+        "Action",
+        "Fighting"
+    ],
+    "Astrologaster": [
+        "Adventure",
+        "Puzzle",
+        "Casual",
+        "Strategy",
+        "Indie"
+    ],
+    "The Dragoness: Command of the Flame": [
+        "Strategy",
+        "RPG"
+    ],
+    "HyperParasite": [
+        "Indie",
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Anomaly Defenders": [
+        "Strategy",
+        "Indie",
+        "Action"
+    ],
+    "Castlestorm": [
+        "Strategy",
+        "Indie",
+        "Action"
+    ],
+    "Wraith: The Oblivion - Afterlife": [
+        "Adventure"
+    ],
+    "Relicta": [
+        "Indie",
+        "Adventure",
+        "Action",
+        "Puzzle"
+    ],
+    "Toodee and Topdee": [
+        "Adventure",
+        "Action",
+        "Puzzle",
+        "Indie",
+        "Platformer"
+    ],
+    "Shadowgrounds": [
+        "Shooter",
+        "Action"
+    ],
+    "Need for Speed Unbound Standard Edition": [
+        "Racing",
+        "Arcade"
+    ],
+    "Layers of Fear 2": [
+        "Casual",
+        "Indie",
+        "Adventure"
+    ],
+    "Destiny 2: Shadowkeep": [
+        "Action"
+    ],
+    "Maskmaker": [
+        "Adventure"
+    ],
+    "Kaze and the Wild Masks": [
+        "Adventure",
+        "Action",
+        "Arcade",
+        "Indie",
+        "Platformer"
+    ],
+    "Lost Horizon": [
+        "Family",
+        "Adventure"
+    ],
+    "In Sound Mind": [
+        "Indie",
+        "Adventure",
+        "Action"
+    ],
+    "Slime-San": [
+        "Indie",
+        "Adventure",
+        "Action"
+    ],
+    "Far Cry 6": [
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Batora: Lost Haven": [
+        "Action",
+        "RPG"
+    ],
+    "Niko: Through the Dream": [
+        "Indie",
+        "Platformer",
+        "Adventure",
+        "Puzzle"
+    ],
+    "Down in Bermuda": [
+        "Casual",
+        "Indie",
+        "Adventure",
+        "Puzzle"
+    ],
+    "Stellaris Upgrade Bundle": [
+        "Strategy"
+    ],
+    "Dragons Dogma: Dark Arisen": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Killer is Dead - Nightmare Edition": [
+        "Action"
+    ],
+    "Dead Space 2": [
+        "Shooter",
+        "Action"
+    ],
+    "Bonkies": [
+        "Casual",
+        "Indie"
+    ],
+    "Old Man's Journey": [
+        "Adventure",
+        "Action",
+        "Puzzle",
+        "Casual",
+        "Indie"
+    ],
+    "Fallout 4: Game of the Year Edition and The Elder Scrolls V: Skyrim Anniversary Edition": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "The Surge": [
+        "Action",
+        "RPG"
+    ],
+    "Road Redemption": [
+        "Racing",
+        "Adventure",
+        "Action",
+        "Simulation"
+    ],
+    "Tacoma": [
+        "Indie",
+        "Adventure"
+    ],
+    "Need for Speed Unbound Palace Edition": [
+        "Racing",
+        "Arcade"
+    ],
+    "GRIP: Combat Racing": [
+        "Racing",
+        "Indie",
+        "Action"
+    ],
+    "Chef Life: A Restaurant Simulator": [
+        "Strategy",
+        "Simulation"
+    ],
+    "Bramble: The Mountain King": [
+        "Indie",
+        "Adventure"
+    ],
+    "Soulstice": [
+        "Adventure",
+        "Action"
+    ],
+    "SPACECOM": [
+        "Strategy",
+        "Indie",
+        "Action"
+    ],
+    "Death Noodle Delivery": [
+        "Adventure",
+        "Action",
+        "RPG",
+        "Casual",
+        "Indie"
+    ],
+    "Filament": [
+        "Strategy",
+        "Indie"
+    ],
+    "This Way Madness Lies": [
+        "RPG"
+    ],
+    "Lost At Sea": [
+        "Puzzle"
+    ],
+    "Truberbrook": [
+        "Indie",
+        "Adventure",
+        "Puzzle"
+    ],
+    "Wasteland 2: Director's Cut": [
+        "Indie",
+        "Strategy",
+        "Adventure",
+        "RPG"
+    ],
+    "Prince of Persia: Warrior Within": [
+        "Adventure",
+        "Action"
+    ],
+    "Read Only Memories: NEURODIVER": [
+        "Casual",
+        "Indie",
+        "Adventure"
+    ],
+    "Nanotale - Typing Chronicles": [
+        "Indie",
+        "Adventure",
+        "RPG"
+    ],
+    "Assassins Creed Mirage Master Assassin Edition": [
+        "Action"
+    ],
+    "WILD HEARTS Karakuri Edition": [
+        "Adventure",
+        "Action"
+    ],
+    "SteamWorld Heist II": [
+        "Adventure",
+        "Action",
+        "RPG",
+        "Strategy",
+        "Indie"
+    ],
+    "Thief II: The Metal Age": [
+        "Action",
+        "Simulation"
+    ],
+    "The Crew Motorfest Ultimate Edition": [
+        "Racing",
+        "Arcade"
+    ],
+    "Far Cry": [
+        "Shooter",
+        "Action"
+    ],
+    "Stacking": [
+        "Adventure",
+        "Action",
+        "RPG",
+        "Puzzle",
+        "Indie"
+    ],
+    "The Sundew": [
+        "Adventure"
+    ],
+    "ALICE VR": [
+        "Indie",
+        "Adventure",
+        "Puzzle"
+    ],
+    "Destiny 2: Beyond Light": [
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Crown Wars: The Black Prince": [
+        "Adventure"
+    ],
+    "Tom Clancys Splinter Cell Pandora Tomorrow": [
+        "Adventure",
+        "Action"
+    ],
+    "Irony Curtain: From Matryoshka with Love": [
+        "Indie",
+        "Adventure"
+    ],
+    "Welcome to ParadiZe": [
+        "Adventure",
+        "Action",
+        "RPG"
+    ],
+    "Styx: Master of Shadows": [
+        "Action",
+        "RPG"
+    ],
+    "Of Orcs and Men": [
+        "Action",
+        "RPG"
+    ],
+    "Star Renegades": [
+        "Strategy",
+        "Indie",
+        "RPG",
+        "Simulation"
+    ],
+    "Ethan: Meteor Hunter": [
+        "Platformer",
+        "Indie",
+        "Action",
+        "Puzzle"
+    ],
+    "Atomik: RunGunJumpGun": [
+        "Action"
+    ],
+    "Jalopy": [
+        "Indie",
+        "Adventure",
+        "Simulation"
+    ],
+    "Half-Life: Alyx": [
+        "Shooter",
+        "Adventure",
+        "Action"
+    ],
+    "Trials Fusion": [
+        "Racing"
+    ],
+    "Arcadia Fallen": [
+        "Adventure",
+        "RPG",
+        "Puzzle",
+        "Casual",
+        "Simulation",
+        "Indie"
+    ],
+    "Space Run Galaxy": [
+        "Strategy",
+        "Indie"
+    ],
+    "The Inner World": [
+        "Family",
+        "Indie",
+        "Adventure"
+    ],
+    "Rising Storm 2: Vietnam": [
+        "Action",
+        "Strategy",
+        "Simulation",
+        "Indie",
+        "Massively Multiplayer"
+    ],
+    "Phantom Breaker: Battle Grounds": [
+        "Action"
+    ],
+    "TT Isle of Man - Ride on the Edge 2": [
+        "Racing"
+    ],
+    "Joe Danger 2: The Movie": [
+        "Racing",
+        "Action",
+        "Casual",
+        "Platformer",
+        "Indie"
+    ],
+    "The Next BIG Thing": [
+        "Family",
+        "Adventure"
+    ],
+    "Arelite Core": [
+        "Indie",
+        "Adventure",
+        "RPG"
     ]
 }
